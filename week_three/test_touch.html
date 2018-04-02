@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>touch</title>
+	<script src="./touch/touch.min.js"></script>
+	<style type="text/css">
+		#head{
+			width: 800px;
+			height: 800px;
+			margin: auto;
+		}
+		#test{
+			width: 500px;
+			height: 500px;
+		}
+	</style>
+</head>
+<body>
+	<div id="head">
+		<img src="./img/123.jpg" draggable="false" alt="" id="test">
+	</div>
+
+	<script type="text/javascript">
+		/*旋转*/
+		/*touch.on('#test', 'touchstart', function(ev){
+			ev.startRotate();//启动旋转方法
+			ev.preventDefault();//阻止触摸时游览器的缩放、滚动条滚动
+		});
+		touch.on('#test', 'rotate', function(ev){//操作为旋转时所触发的函数
+			var totalAngle = ev.rotation;
+			this.style.webkitTransform = 'rotate(' + totalAngle + 'deg)' ;
+
+		});*/
+		/*滑动*/
+		var test = document.getElementById('test');
+		test.style.webkitTransition = "all ease 0.5s";//给滑动的效果添加过渡
+		var totle = document.getElementById('head').offsetWidth;
+		var lt = test.offsetLeft;
+		var rt = totle-lt-332;
+		
+		touch.on('#test', 'touchstart', function(ev){
+			ev.preventDefault();
+		});
+		touch.on('#test', 'swipeleft', function(ev){//手势向左时触发的效果
+			this.style.webkitTransform = "translate3d(-" + this.offsetLeft + "px,0,0)";console.log(offsetLeft);
+		});
+		touch.on('#test', 'swiperight', function(ev){//手势向右互动时触发的效果
+			this.style.webkitTransform = "translate3d(" + rt + "px,0,0)";
+		});
+		/*拖动*/
+		var dx = 0,dy = 0;
+
+		touch.on('#test', 'touchstart', function(ev){
+			ev.preventDefault();
+		});
+		touch.on('#test', 'drag', function(ev){//移动时触发的效果
+			var localX = dx + ev.x + 'px';
+			var localY = dy + ev.y + 'px';
+			this.style.webkitTransform = "translate3d(" + localX + "," + localY + ",0)"; 
+			console.log(localX);
+			console.log(localY);
+		});
+		touch.on('#test', 'dragend', function(ev){//移动执行结束后执行的函数
+			//保证移动的时时更新
+			dx += ev.x;
+			dy += ev.y;
+		});
+		/*双击*/
+		var gdWidth = 500 + 'px';
+		var gdHeight = 500 + 'px';
+		touch.on('#test', 'doubletap', function(ev){
+			test.style.width = 100 + '%';
+			test.style.height = 100 + '%';
+		});
+		/*单击*/
+		touch.on('#test', 'tap', function(ev){
+			test.style.width = gdWidth;
+			test.style.height = gdHeight;
+		})
+	</script>
+</body>
+</html>
