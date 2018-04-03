@@ -1,8 +1,8 @@
-###localStorage###
+### localStorage ###
 
 ---
 
-#####基本语法#####
+##### 基本语法 #####
 
 1. 保存数据: localStorage.setItem(key, value);
 2. 读取数据: localStorage.getItem(key);
@@ -24,7 +24,7 @@ function save () {
 
 以**字符串**的形式存储,且存储后若不手动删除将一直保存。保存的文件大小为**5M**。不同游览器间无法共享其保存的信息，相同游览器的不同页面可以共享localStorage的信息(页面属于相同的域名和端口)。
 
-###sessionstorage###
+### sessionstorage ###
 
 seesionstorage和localStorage具有相同的API
 都只能以**字符串**的形式保存。
@@ -43,7 +43,7 @@ user = JSON.parse(userStr);
 
 ```
 
-###Web SQL###
+### Web SQL ###
 
 支持：
 	在最新的Safari,Chrome,Opera游览器;
@@ -78,9 +78,9 @@ db.transaction(function(tx){
 //兼容性差
 ```
 
-###IndexeDB###
+### IndexeDB ###
 
-详细[API]: (https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
+详细[API](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
 
 ----
 `objectStore` -> "储存对象";
@@ -88,7 +88,7 @@ db.transaction(function(tx){
 `objecStore.delete()` -> 删除数据;
 `objectStore.clear()` -> 清空数据库;
 `objectStore.put()` -> 替换数据;
-更多操作[API]: (https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore)
+更多操作[API](https://developer.mozilla.org/en-US/docs/Web/API/IDBObjectStore)
 ```
 objectStore.createIndex(indexName, KeyPath, objectParamters);
 

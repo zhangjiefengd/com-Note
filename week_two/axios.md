@@ -1,7 +1,7 @@
-###Axios###
+### Axios ###
 ----
 
-####引入方式####
+#### 引入方式 ####
 
 ---
 
@@ -14,7 +14,7 @@
 npm install axios --save
 ```
 
-####语法####
+#### 语法 ####
 
 ----
 get请求：
@@ -157,7 +157,7 @@ var instance = axios.creat({
 }
 ```
 
-#####相应结构#####
+##### 相应结构 #####
 ```
 {
 	data: {},
@@ -174,14 +174,14 @@ axios.get('url')
 	})
 ```
 
-#####全局的Axios默认值#####
+##### 全局的Axios默认值 #####
 ```
 axios.defaults.baseURL = 'url';
 axios.defaults.header.common['Authorization'] = AUTH_TOKEN;
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 ```
 
-#####自定义实例默认值#####
+##### 自定义实例默认值 #####
 
 1. 在实例时设置默认的配置
 ```
@@ -191,7 +191,7 @@ var instance = axios.create({
 ```
 2. 将实例后的值再加上默认的配置
 
-#####配置的优先性#####
+##### 配置的优先性 #####
 
 1. `lib/defaults.js`库中的默认值
 2. 实例`default`的属性
@@ -208,7 +208,7 @@ var instance = axios.create({
 	})
 ```
 
-#####拦截器#####
+##### 拦截器 #####
 ```
 //添加请求拦截
 axios.interceptors.request.use(function(config){
@@ -229,7 +229,7 @@ axios.interceptors.response.use(function(response) {
 `axios.interceptors.request.eject(name)`name为拦截器的名字。
 
 
-#####错误处理#####
+##### 错误处理 #####
 ```
 axios.get('url')
 	.catch(fucntion (error){
@@ -244,7 +244,7 @@ axios.get('url')
 	})
 	//可以用`validateStatus`来定义http状态码的错误范围
 ```
-#####取消请求#####
+##### 取消请求 #####
 
 ```
 var CanselToken = axios.CancelToken;

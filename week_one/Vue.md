@@ -1,4 +1,4 @@
-###Vue###
+### Vue ###
 ---
 
 v-if 为 false是不在Dome节点中;
