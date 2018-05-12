@@ -196,7 +196,8 @@ var instance = axios.create({
 1. `lib/defaults.js`库中的默认值
 2. 实例`default`的属性
 3. `config`参数
-**注意:后者优先于前者**
+
+** 注意:后者优先于前者 **
 ```
 	//后者将覆盖前面的值
 	var instance = axios.create();
